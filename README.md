@@ -1,4 +1,4 @@
-Written By Jonathan Richard
+Referencia -> Written By Jonathan Richard
 
 Department of Electrical Engineering Universitas Indonesia
 # huffmancoding-Python
