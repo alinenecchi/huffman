@@ -1,4 +1,9 @@
-Referencia -> Written By Jonathan Richard
+Referencias 
+-> Written By Jonathan Richard
+-> https://www.section.io/engineering-education/huffman-coding-python/
+-> https://www.techrepublic.com/article/huffman-coding-in-python/
+-> https://bhrigu.me/post/huffman-coding-python-implementation/
+-> https://github.com/Vnicius/python-arvore-de-huffman
 
 Department of Electrical Engineering Universitas Indonesia
 # huffmancoding-Python
@@ -11,8 +16,8 @@ This version is much faster but requires the BitArray package acquirable in Pip.
 Slower version, this version could be easily ported into MicroPython (and has been tested before) because it only used standard libraries of python. 
 
 # Usage
-### Put your string into string.txt 
-### Run Encoder.py
-### New files are created: compressed.bin is the encoded string and table.txt contains the huffman table. 
-### Run decoder.py and it will print the decoded string into the terminal. 
+### Put your string into sample.txt 
+### Run main.py
+### New files are created: encode.bin is the encoded string and sample.txt contains the huffman code. 
+
 
