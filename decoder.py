@@ -7,8 +7,7 @@ class node:
         self.endnode = end
         self.huff = huff
         self.level = len(huff) 
-        
-
+       
 
 def decode(codes,nodes):
     current = nodes

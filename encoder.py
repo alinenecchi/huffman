@@ -21,8 +21,6 @@ def generate(node, val =''):
     if(not node.left and not node.right):
         table[node.char] = val
 
-
-
 def checkFrequency(string):
     freq ={}
     for a in string:
@@ -31,7 +29,6 @@ def checkFrequency(string):
         else:
             freq[a] = 1
     return freq
-
 
 def encode(uncompressed,table):
     text = ''
@@ -52,8 +49,6 @@ def encode(uncompressed,table):
         pos -= 1
     
     return compressed
-
-
 
 nodes = []  
 freq = checkFrequency(string)
