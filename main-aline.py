@@ -1,3 +1,5 @@
+import os
+
 class Node:
     def __init__(self, number, letter="", left=None, right=None):
         self.number = number
@@ -6,6 +8,7 @@ class Node:
         self.code = ""
         self.right = right
         self.left = left
+
 
 def read_file(x):
     letters_frequency = {}
@@ -21,7 +24,9 @@ def read_file(x):
     f.close()
     return letters_frequency
 
+
 def create_tree(x):
+    print ("Arquivo que está sendo comprimido: "+ x)
     global startingnodes
     letters_frequency = read_file(x)
     for i, j in letters_frequency.items():
@@ -36,8 +41,10 @@ def create_tree(x):
         del nodes[0]
         nodes.append(n)
 
+
 def print_results():
     global startingnodes
+    list_code_str = ""
     print("letras- frequencia - code bin")
     for i in startingnodes:
         tmp = i
@@ -45,9 +52,11 @@ def print_results():
             i.code += tmp.parent.code
             tmp = tmp.parent
     for i in startingnodes:
-       
-        print("   "+ i.letter + "        " + str(i.number) + "         " + i.code[::-1])
-
+        print("   " + i.letter + "        " + str(i.number) + "         " + i.code[::-1])
+        print("   " + i.letter + "        " + str(i.number) + "         " + i.code[::-1])
+        list_code_str += i.code
+    creatFile("result.bin", list_code_str)
+    print("Codigo gerado: " + list_code_str)
 
 def find_top():
     top = startingnodes[0]
@@ -64,8 +73,25 @@ def give_codes(current):
         current.right.code = "0"
         give_codes(current.right)
 
+def readb(filename):
+    f = open(filename, "r")
+    txt = str(f)
+    print(txt.encode(encoding="ascii", errors="ignore"))
+
+def creatFile(file_name, text):
+ try:
+     file = open(file_name, 'w')	
+     file.write(text)
+     file.close()
+ except IOError:
+     raise print("Erro ao criar o arquivo")
 
 startingnodes = []
-create_tree("string.txt")
+create_tree("sample.txt")
+
 give_codes(find_top())
 print_results()
+file_size = os.path.getsize(r'C:\Users\aline\huffman\sample.txt')
+print('sample.txt:', file_size, 'bytes')
+file_size_end = os.path.getsize(r'C:\Users\aline\huffman\result.bin')
+print('Result.bin:', file_size_end, 'bytes')
