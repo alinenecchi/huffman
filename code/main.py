@@ -1,7 +1,7 @@
 from no import Node
 import os
 
-
+startingnodes = ""
 def read_file(filename):
     letters_frequency = {}
     file = open(filename, "r")
@@ -18,7 +18,7 @@ def read_file(filename):
 
 def create_tree(x):
     print("Arquivo que está sendo comprimido: " + x)
-    global startingnodes
+    #global startingnodes
     letters_frequency = read_file(x)
     for i, j in letters_frequency.items():
         startingnodes.append(Node(j, i))
@@ -34,7 +34,7 @@ def create_tree(x):
 
 
 def print_results():
-    global startingnodes
+    #global startingnodes
     list_code_str = ""
     print("letras- frequencia - code bin")
     for i in startingnodes:
@@ -45,7 +45,7 @@ def print_results():
     for i in startingnodes:
         print("   " + i.letter + "        " + str(i.number) + "         " + i.code[::-1])
         list_code_str += i.code
-    creatFile("encode.txt", list_code_str)
+    creatFile("encode.bin", list_code_str)
 
 
 def find_top():
@@ -75,12 +75,11 @@ def creatFile(file_name, text):  # escreve um arquivo com o texto em binário
 
 startingnodes = []
 create_tree("sample.txt")
-ascii_size = os.path.getsize(
-    r'C:\Users\aland\OneDrive\Área de Trabalho\Senac\Huffman\sample.txt')
+ascii_size = os.path.getsize(r'C:\Users\aline\huffman\code\sample.txt')
 
 give_codes(find_top())
 print_results()
-huff_size = os.path.getsize(r'C:\Users\aland\OneDrive\Área de Trabalho\Senac\Huffman\encode.txt')
+huff_size = os.path.getsize(r'C:\Users\aline\huffman\code\encode.bin')
 print('ASCII File Size:', ascii_size, 'bytes')
 print('Huffman File Size:', huff_size, 'bytes')
 

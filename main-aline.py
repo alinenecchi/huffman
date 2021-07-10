@@ -9,7 +9,7 @@ class Node:
         self.right = right
         self.left = left
 
-
+startingnodes = ""
 def read_file(x):
     letters_frequency = {}
     f = open(x, "r")
@@ -27,7 +27,7 @@ def read_file(x):
 
 def create_tree(x):
     print ("Arquivo que está sendo comprimido: "+ x)
-    global startingnodes
+    #global startingnodes
     letters_frequency = read_file(x)
     for i, j in letters_frequency.items():
         startingnodes.append(Node(j, i))
@@ -43,7 +43,7 @@ def create_tree(x):
 
 
 def print_results():
-    global startingnodes
+    #global startingnodes
     list_code_str = ""
     print("letras- frequencia - code bin")
     for i in startingnodes:
