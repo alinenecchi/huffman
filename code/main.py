@@ -75,11 +75,12 @@ def creatFile(file_name, text):  # escreve um arquivo com o texto em binário
 
 startingnodes = []
 create_tree("sample.txt")
-ascii_size = os.path.getsize(r'C:\Users\aline\huffman\code\sample.txt')
-
+path_sample = os.path.abspath("sample.txt")
+ascii_size = os.path.getsize(path_sample)
 give_codes(find_top())
 print_results()
-huff_size = os.path.getsize(r'C:\Users\aline\huffman\code\encode.bin')
+path_encode = os.path.abspath("encode.bin")
+huff_size = os.path.getsize(path_encode)
 print('ASCII File Size:', ascii_size, 'bytes')
 print('Huffman File Size:', huff_size, 'bytes')
 
