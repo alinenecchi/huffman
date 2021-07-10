@@ -36,14 +36,14 @@ def create_tree(x):
 def print_results():
     #global startingnodes
     list_code_str = ""
-    print("letras- frequencia - code bin")
+    #print("letras- frequencia - code bin")
     for i in startingnodes:
         tmp = i
         while tmp.parent is not None:
             i.code += tmp.parent.code
             tmp = tmp.parent
     for i in startingnodes:
-        print("   " + i.letter + "        " + str(i.number) + "         " + i.code[::-1])
+        #print("   " + i.letter + "        " + str(i.number) + "         " + i.code[::-1])
         list_code_str += i.code
     creatFile("encode.bin", list_code_str)
 
@@ -75,13 +75,22 @@ def creatFile(file_name, text):  # escreve um arquivo com o texto em binário
 
 startingnodes = []
 create_tree("sample.txt")
-path_sample = os.path.abspath("sample.txt")
-ascii_size = os.path.getsize(path_sample)
+#create_tree("input.in")
 give_codes(find_top())
 print_results()
+
+#path_input = os.path.abspath("input.in")
+#input_size = os.path.getsize(path_input)
+
+path_sample = os.path.abspath("sample.txt")
+ascii_size = os.path.getsize(path_sample)
+
 path_encode = os.path.abspath("encode.bin")
 huff_size = os.path.getsize(path_encode)
+
 print('ASCII File Size:', ascii_size, 'bytes')
+#print('Input File Size:', input_size, 'bytes')
 print('Huffman File Size:', huff_size, 'bytes')
 
-print('Redução de {:.2f}%'.format((100-(huff_size*100/ascii_size))))
+print('Redução de sample.txt {:.2f}%'.format((100-(huff_size*100/ascii_size))))
+#print('Redução de input.in {:.2f}%'.format((100-(huff_size*100/input_size))))
