@@ -97,8 +97,8 @@ huff_size = os.path.getsize(path_encode)
 print('Input File Size:', input_size, 'bytes')
 print('Huffman File Size:', huff_size, 'bytes')
 
-#print('Redução de sample.txt {:.2f}%'.format((100-(huff_size*100/ascii_size))))
-print('Redução de input.in {:.2f}%'.format((100-(huff_size*100/input_size))))
+#print('Redução de sample.txt: {:.2f}%'.format((100-(huff_size*100/ascii_size))))
+print('Redução de input.in: {:.2f}%'.format((100-(huff_size*100/input_size))))
 
 final_time = timeit.default_timer() - start_time
 print("\nTempo de execução do processo: ",final_time)
